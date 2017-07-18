@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <meta charset="UTF-8">
+    <title>PWA demo</title>
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pwademo.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Potato talks - August 2017</h1>
+            <nav>
+                <ul class="nav-items">
+                    <li class="nav-items__item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-items__item"><a href="{% url 'agenda' %}">Agenda</a></li>
+                    <li class="nav-items__item"><a href="{% url 'about' %}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div role="main">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

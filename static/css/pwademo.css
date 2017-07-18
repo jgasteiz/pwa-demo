@@ -1,0 +1,88 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+
+/* Header */
+.header {
+    background: #81C784;
+    padding: 20px;
+}
+.header__title {
+    margin-top: 0;
+}
+.nav-items {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-items__item {
+    margin-right: 20px;
+}
+.nav-items__item:last-child {
+    margin-right: 0;
+}
+
+/* Main content */
+div[role="main"] {
+    padding: 20px;
+}
+
+.img-center {
+    margin: 0 0 40px;
+}
+.img-center span {
+    display: block;
+    font-style: italic;
+    margin: 6px auto 0;
+    text-align: center;
+}
+.img-center img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.offline-notice {
+    background: #fff9af;
+    padding: 20px;
+}
+
+/* Boring Grid */
+.row {
+    display: flex;
+    margin: 0 0 40px -20px;
+}
+.col {
+    padding-left: 20px;
+}
+.col-6 {
+    width: calc(50% - 20px);
+}
+.col-3 {
+    width: calc(25% - 20px);
+}
+.col-4 {
+    width: calc(33.333% - 20px);
+}
+@media screen and (max-width: 700px) {
+    .row {
+        flex-wrap: wrap;
+        margin: 0 0 20px 0;
+    }
+    .col {
+        padding-left: 0;
+        width: 100%;
+    }
+}

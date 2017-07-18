@@ -1,0 +1,53 @@
+application: pwademo
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /_ah/(mapreduce|queue|warmup|start|stop).*
+  script: pwademo.wsgi.application
+  login: admin
+  secure: always
+
+- url: /_ah/internalupload.*
+  script: pwademo.wsgi.application
+  secure: always
+
+- url: /static
+  static_dir: static/
+  secure: always
+
+- url: /static/build
+  static_dir: static/build/
+  secure: always
+
+- url: /service-worker.js
+  static_dir: static/
+  secure: always
+
+# Set Django admin to be login:admin as well as Django's is_staff restriction
+- url: /admin.*
+  script: pwademo.wsgi.application
+  secure: always
+  login: admin
+
+- url: /.*
+  script: pwademo.wsgi.application
+  secure: always
+
+skip_files:
+  - ^manage\.py$
+  - ^README\.md$
+  - ^install_deps$
+  - ^requirements/.*\.txt$
+  - ^sitepackages/dev.*
+  - ^.*\.(egg|dist)-info/.*$
+
+  # Defaults.
+  - ^(.*/)?#.*#$
+  - ^(.*/)?.*~$
+  - ^(.*/)?.*\.py[co]$
+  - ^(.*/)?.*/RCS/.*$
+  - ^(.*/)?\..*$
